@@ -3,3 +3,5 @@
 /classes/*
 /project/*
 /target/*
+.DS_Store
+.idea
