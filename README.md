@@ -14,12 +14,17 @@ In this repository Twitter [dataset from Kaggle](https://www.kaggle.com/c/twitte
 + - - - - - - - - - - - - - - - - - - - - - - - - - - - +
 ```
 ## Training process structure
+
 The flow of the whole model development is outlined by the shceme below 
+
 <p>
 <img src="https://github.com/Gci04/spark-twitter-sentiment-analysis/blob/master/NLgewhb.png" alt="Scheme" width="550"/>
 </p>
+
 The schema is implemented as pipeline in file.scala
-## ML Model 
+
+## ML Model
+
 Machine Learning model used as a classifier is Logistic Regression. Using spark  parameter grid map and CrossValidator() model is tuned and crossvalidated in parallel
 
 ### Distributed Hyperparameter Search
