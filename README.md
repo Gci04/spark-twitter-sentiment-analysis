@@ -1,5 +1,5 @@
 # Spark twitter sentiment analysis
-This Repository implements a machine learning model which analyzes tweets and predicts if they are positive, or negative. The programming laguage is scala. 
+This Repository implements a machine learning model which analyzes tweets and predicts if they are positive, or negative. The programming laguage is scala.
 
 ## Dataset Description
 In this repository Twitter [dataset from Kaggle](https://www.kaggle.com/c/twitter-sentiment-analysis2/data) is used. The training set contains 100k examples, test set has 300k examples. The data is provided in CSV format. Data is very irregular and requires preprocessing
@@ -15,10 +15,10 @@ In this repository Twitter [dataset from Kaggle](https://www.kaggle.com/c/twitte
 ```
 ## Training process structure
 
-The flow of the whole model development is outlined by the shceme below 
+The flow of the whole model development is outlined by the shceme below
 
 <p>
-<img src="https://github.com/Gci04/spark-twitter-sentiment-analysis/blob/master/NLgewhb.png" alt="Scheme" width="550"/>
+<img src="https://github.com/Gci04/spark-twitter-sentiment-analysis/blob/master/pipeline.png" alt="Scheme" width="550"/>
 </p>
 
 The schema is implemented as pipeline in file.scala
@@ -37,7 +37,7 @@ val paramMap = new ParamMap()
       .put(ngramVectorizer.vocabSize, 10000)
       .put(classifier.tol, 1e-20)
       .put(classifier.maxIter, 100)
-      
+
 val model = pipe.fit(twitterData, paramMap)
 ```
 
@@ -64,7 +64,7 @@ val cv = new CrossValidator()
       .setNumFolds(5)
       .setParallelism(2)
 ```
-## Performance Measurement 
+## Performance Measurement
 
 [Receiver operating characteristic](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) is used to measure model performance.
 
@@ -78,9 +78,8 @@ println(s"ROC: ${roc}")
 ```
 
 ## Configuring and Run on Cluster
-Using intellij idea having build.sbt file a .jar file can be easily compiled and deployed in cluster using the following comand: 
+Using intellij idea having build.sbt file a .jar file can be easily compiled and deployed in cluster using the following comand:
 
 ```bash
 spark-submit --master yarn --deploy-mode client path/to/jar hdfs://twitter/
 ```
-
